@@ -1,0 +1,57 @@
+package ficherotxt;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Ficherotxt {
+    public static void main(String[] args) {
+        File archivo = null;
+        FileReader fr = null;
+        BufferedReader br = null;
+        List<String>ListaOrd = new ArrayList<String>();
+        ListaOrd.add("Funado de el fornite");
+        String [] palabraArch=null; //Frase del txt
+        String [] palabraOrig=null; //Frase del codigo
+        
+        
+      try {
+        // Apertura del fichero y creacion de BufferedReader para poder
+        // hacer una lectura comoda (disponer del metodo readLine()).
+        archivo = new File ("C:\\Users\\ALEXIS\\Documents\\7 Semestre\\Estructura Pedro\\Prueba.txt");
+        fr = new FileReader (archivo);
+        br = new BufferedReader(fr);
+        
+        // Lectura del fichero
+        String linea;
+        while((linea=br.readLine())!=null){
+            palabraArch=linea.split("");
+            //System.out.println(palabraArch);
+        }
+        for (String nom:ListaOrd){
+            palabraOrig=nom.split("");
+            //System.out.println(palabraOrig);
+        }
+        String[]Fin=new String [palabraArch.length];
+        for(int i=0;i<palabraOrig.length;i++){
+            for(int j=0; j<palabraArch.length;j++){
+                if(palabraOrig[i].equals(palabraArch[j])){
+                   Fin[i]=palabraArch[j];
+                }else{
+                }
+            }
+        }
+        for(int r=0;r<Fin.length;r++){
+            System.out.print(Fin[r]+"");
+        }
+        
+        fr.close();
+        }
+        catch(Exception e){
+        System.out.println(e);
+      }
+      
+    }
+}
